@@ -971,8 +971,7 @@ class TaskInstance(Base, LoggingMixin):
     @property
     def mark_success_url(self):
         iso = self.execution_date.isoformat()
-        BASE_URL = configuration.get('webserver', 'BASE_URL')
-        return BASE_URL + (
+        return  (
             "/admin/airflow/action"
             "?action=success"
             "&task_id={self.task_id}"

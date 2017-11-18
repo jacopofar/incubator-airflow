@@ -961,8 +961,7 @@ class TaskInstance(Base, LoggingMixin):
     @property
     def log_url(self):
         iso = self.execution_date.isoformat()
-        BASE_URL = configuration.get('webserver', 'BASE_URL')
-        return BASE_URL + (
+        return (
             "/admin/airflow/log"
             "?dag_id={self.dag_id}"
             "&task_id={self.task_id}"
